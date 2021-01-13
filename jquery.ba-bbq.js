@@ -352,8 +352,9 @@
       obj = {};
     
     $.each( jq_param( a, traditional ).split( '&' ), function(i,v){
-      var key = v.replace( /(?:%5B|=).*$/, '' ),
-        key_obj = obj[ key ];
+      var key = v.replace( /(?:%5B|=).*$/, '' );
+      if (key === '__proto__') { return; }
+      var key_obj = obj[ key ];
       
       if ( !key_obj ) {
         key_obj = obj[ key ] = [];
@@ -470,8 +471,9 @@
     // Iterate over all name=value pairs.
     $.each( params.replace( /\+/g, ' ' ).split( '&' ), function(j,v){
       var param = v.split( '=' ),
-        key = decode( param[0] ),
-        val,
+        key = decode( param[0] );
+      if (key === '__proto__') { key = ''; }
+      var val,
         cur = obj,
         i = 0,
         
@@ -519,7 +521,7 @@
           // * Move the 'cur' pointer to the next level.
           // * Rinse & repeat.
           for ( ; i <= keys_last; i++ ) {
-            key = keys[i] === '' ? cur.length : keys[i];
+            key = (keys[i] === '' || keys[i] === '__proto__') ? cur.length : keys[i];
             cur = cur[key] = i < keys_last
               ? cur[key] || ( keys[i+1] && isNaN( keys[i+1] ) ? {} : [] )
               : val;
