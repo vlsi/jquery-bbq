@@ -28,5 +28,8 @@
   "homepage": "https://github.com/riboseinc/jquery-bbq#readme",
   "dependencies": {
     "jquery": ">= 1.4.0"
+  },
+  "devDependencies": {
+    "qunit": "^2.16.0"
   }
 }
