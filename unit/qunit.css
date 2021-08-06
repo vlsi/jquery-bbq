@@ -185,3 +185,18 @@ strong b.fail {
 strong b.pass {
   color: #0a0;
 }
+
+.tests {
+  display: flex;
+  justify-content: center;
+  background: pink;
+  align-items: stretch;
+  flex-flow: row wrap;
+}
+
+.jquery-test {
+  margin: 10px;
+  min-height: 100%;
+  flex-grow: 1;
+  min-height: 50vh;
+}

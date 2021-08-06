@@ -48,7 +48,7 @@ if ( $.param.querystring() !== params_init || $.param.fragment() !== params_init
   window.location.href = init_url;
 }
 
-$('#jq_version').html( $.fn.jquery );
+$('.jq_version').html( $.fn.jquery );
 
 function notice( txt ) {
   if ( txt ) {
@@ -955,6 +955,7 @@ QUnit.test( 'jQuery.bbq.pushState(), jQuery.bbq.getState(), jQuery.bbq.removeSta
     // execute this at the end
     function(){
       notice();
+      window.parent.postMessage('done', '*');
     },
     
     // tests:
