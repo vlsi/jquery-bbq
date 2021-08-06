@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>jQuery BBQ: Back Button &amp; Query Library - Unit Tests</title>
+  <!-- <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7"> -->
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="qunit.css" type="text/css" media="screen">
+  <script type="text/javascript">
+  'strict';
+  var qs = window.location.hash;
+  var match = qs.match('v=(.*)');
+
+  function createScript(src) {
+    var script = document.createElement('script');
+    script.type = "text/javascript";
+    script.src = src;
+    script.async = true;
+    document.head.appendChild(script);
+    script.addEventListener('load', function(event) {
+      console.debug('script has been loaded:', src);
+    });
+    return script;
+  }
+
+  if (match !== null) {
+    var jqVersion = match[1];
+    createScript("../shared/jquery-" + jqVersion + ".js").
+      addEventListener('load', function(event) {
+        console.log('jQuery ' + jqVersion + ' has been loaded');
+        console.warn('$ is', jQuery.fn.jquery);
+        createScript('../shared/qunit.js');
+        createScript('../jquery.ba-bbq.js');
+        // createScript('unit.js');
+      });
+  }
+else {
+  console.trace();
+}
+
+  </script>
+</head>
+<body>
+  <div id="qunit-header">
+    <h1>jQuery <span class="jq_version">...</span></h1>
+    <div style="clear:both"></div>
+  </div>
+  <h2 id="qunit-banner"><span></span></h2>
+  <h3 id="notice"></h3>
+  <div id="qunit-testrunner-toolbar"></div>
+  <h2 id="qunit-userAgent"></h2>
+  <p>
+    These unit tests include jQuery <span class="jq_version">...</span>. To view all unit tests,
+    <a href="./index.html">click here</a>.
+  </p>
+  <ol id="qunit-tests"></ol>
+
+</body>
+</html>
