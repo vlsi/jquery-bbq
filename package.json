@@ -1,0 +1,32 @@
+{
+  "name": "jquery-bbq",
+  "version": "1.3.1",
+  "description": "Back Button & Query Library",
+  "main": "jquery.ba-bbq.js",
+  "directories": {
+    "doc": "docs",
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/riboseinc/jquery-bbq.git"
+  },
+  "keywords": [
+    "jquery",
+    "bbq",
+    "back",
+    "button"
+  ],
+  "author": "Ben Alman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/riboseinc/jquery-bbq/issues"
+  },
+  "homepage": "https://github.com/riboseinc/jquery-bbq#readme",
+  "dependencies": {
+    "jquery": ">= 1.4.0"
+  }
+}
