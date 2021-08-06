@@ -99,6 +99,14 @@ function run_many_tests() {
 
 function runTests() {
 console.debug('Running test...');
+QUnit.module( 'Prototype pollution' );
+
+QUnit.test( 'jQuery.deparam', function(assert) {
+  $.deparam('__proto__[polluted]=true');
+  assert.equal(({}.polluted), undefined);
+});
+
+
 QUnit.module( 'jQuery.param' );
 
 var params_obj = { a:['4','5','6'], b:{x:['7'], y:'8', z:['9','0','true','false','undefined','']}, c:'1' },
