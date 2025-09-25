@@ -85,6 +85,8 @@
 //         robust test needed to be added.
 // 1.0   - (10/2/2009) Initial release
 
+import jQuery from 'jquery';
+
 (function($,window){
   '$:nomunge'; // Used by YUI compressor.
   
@@ -985,7 +987,7 @@
     
   });
   
-})(jQuery,this);
+})(jQuery,window);
 
 /*!
  * jQuery hashchange event - v1.3 - 7/21/2010
@@ -1286,4 +1288,7 @@
     return self;
   })();
   
-})(jQuery,this);
+})(jQuery,window);
+
+// (optional) export something so bundlers don’t shake it away
+export default jQuery;
